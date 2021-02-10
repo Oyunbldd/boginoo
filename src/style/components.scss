@@ -10,11 +10,27 @@
 
 .btn {
     border-radius: 100px;
+    text-transform: uppercase;
 }
 
-.disabled {
+.disabled { 
+    outline: none;
+    border:none;
+}
+
+.alga{
+    
+}
+
+.underline{
+   text-decoration: underline;
+}
+.text-align{
+    text-align: center;
 }
 
 .input {
     border-radius: 100px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.16);
+    padding-left: 15px;
 }

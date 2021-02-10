@@ -1,8 +1,7 @@
 import React from 'react';
 import { Navigation } from './';
 
-export const Layout = ({ children }) => {
-
+export const Layoutsignup = ({ children }) => {
     return (
         <div className='flex flex-col items-center pa-3' style={{ width: '100vw', height: '100vh' }}>
             {/* NAVIGATION */}
@@ -18,7 +17,7 @@ export const Layout = ({ children }) => {
                 Made with ♥️ by Nest Academy
             </div>
             <div className='font-ubuntu fs-16 lh-18' style={{ opacity: 0.2 }}>
-                ©boginoo.io 2020
+                ©boginoo.io 2021
             </div>
         </div>
     );

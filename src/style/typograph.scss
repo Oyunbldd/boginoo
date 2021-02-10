@@ -7,6 +7,7 @@
 */
 
 
+
 // UBUNTU FONT
 
 /* cyrillic-ext */
@@ -17,7 +18,7 @@
     font-display: swap;
     src: local('Ubuntu Regular'), local('Ubuntu-Regular'), url(https://fonts.gstatic.com/s/ubuntu/v14/4iCs6KVjbNBYlgoKcg72nU6AF7xm.woff2) format('woff2');
     unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
+}   
 /* cyrillic */
 @font-face {
     font-family: 'Ubuntu';
@@ -121,6 +122,7 @@
 
 .font-lobster {
     font-family: Lobster;
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 }
 
 .font-ubuntu {
@@ -135,8 +137,15 @@
     font-weight: bold;
 }
 
-
-/* 
+@for $i from 12 through 80{
+    .fs-#{$i}{
+        font-size: $i+px;
+    }
+    .lh-#{$i}{
+        line-height: $i+px;
+    }
+}
+/*  
     sass ашиглан 12 -оос 80 -ийн хооронд давтан
     font-size, line-height -ийг зааж өгөх боломжтой class-ууд үүсгэ
     Жишээ нь:
