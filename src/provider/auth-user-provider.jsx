@@ -4,11 +4,13 @@ import {BrowserRouter as router,Switch,Route,Link ,useHistory } from 'react-rout
 export const AuthContext=createContext({
     user:null,
     userReady:false,
+    email:null,
 })
 export const AuthProvider=({children})=>{
     const [state,setState]=useState({
         user:null,
         userReady:false,
+        email:null,
     })
 
 useEffect(()=>{
@@ -16,7 +18,7 @@ useEffect(()=>{
        return
    }
    const subscribe = auth.onAuthStateChanged((user) => {
-   user ? setState({user:user, userReady:true}) : setState({user:null, userReady:true}) 
+   user ? setState({user:user, userReady:true, email:user.email}) : setState({user:null, userReady:true,email:null}) 
   });
   return  ()=>subscribe()
 },[auth])

@@ -8,7 +8,16 @@ export const Reset = () => {
     const change=(e)=>{
      setFrom({...form ,[e.target.id]:e.target.value})
     }
- 
+    var emailAddress = form.email;
+    console.log(emailAddress)
+    const ilgeeh=(emailAddress)=>{
+        auth.sendPasswordResetEmail(emailAddress).then(function() {
+           console.log('ilgeegdsen')
+          }).catch(function(error) {
+            console.log("amjiltgui")
+          });
+    }
+
     return (
         <Layoutsignup>
            <div className='h100 flex justify-center'>
@@ -31,7 +40,7 @@ export const Reset = () => {
                     <Forminput label="Цахим хаяг" className='input b-gray0 h-5 w-8 disabled' placeholder='name@mail.domain'  value="form.email" onchange={change} id="email" />
                 </div>
                   
-                <Button className='btn font-ubuntu b-primary c-default  disabled w-8 fs-20 lh-23 bold h-5 ph-4 mt-5'>Илгээх</Button>
+                <Button className='btn font-ubuntu b-primary c-default  disabled w-8 fs-20 lh-23 bold h-5 ph-4 mt-5' oncClick={ilgeeh(emailAddress)}>Илгээх</Button>
              </div>
              </div>
         </Layoutsignup>
