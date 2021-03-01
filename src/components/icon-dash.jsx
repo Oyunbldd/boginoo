@@ -1,14 +1,5 @@
 import React from 'react';
 export const IconDash = () => {
-	/*
-		Figma дээрх зураас icon -ний svg файлыг export хийж хуулж тавих
-
-		return (
-			<svg >
-				<path >
-			</svg>
-		)
-	*/
 
 	return (
 		<svg width="27" height="8" viewBox="0 0 27 8" fill="none" xmlns="http://www.w3.org/2000/svg">

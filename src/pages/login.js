@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Layoutsignup,
   Button,
@@ -9,18 +9,30 @@ import {
   Forminput,
 } from "../components";
 import { useHistory } from "react-router-dom";
+
+import { AuthContext } from "../provider/auth-user-provider";
+
 import { auth, firestore, createDoc } from "./firebase";
+
 export const Login = () => {
   let history = useHistory();
+  const { user } = useContext(AuthContext);
+  if (user) {
+    history.push("/");
+  }
+
   const email = localStorage.getItem("email");
   const [value, setValue] = useState("");
+
   const [form, setFrom] = useState({ email: "", password: "" });
+
+  const [check, setCheck] = useState("");
+
   const change = (e) => {
     setFrom({ ...form, [e.target.id]: e.target.value });
+    setCheck("");
   };
-  const signup = () => {
-    history.push("/signup");
-  };
+
   const login = () => {
     const { email, password } = form;
     auth
@@ -29,15 +41,19 @@ export const Login = () => {
         history.push("/");
         var user = userCredential.user;
       })
-      .catch((error) => {});
+      .catch((error) => {
+        let err = error.message;
+        setCheck(err);
+      });
   };
+
   useEffect(() => {
     const data = localStorage.getItem("email");
     if (data) {
       setValue(JSON.parse(data));
     }
   }, []);
-  console.log(form.email);
+
   return (
     <Layoutsignup>
       <div className="h100 flex justify-center">
@@ -74,6 +90,9 @@ export const Login = () => {
               id="password"
             />
           </div>
+          <div className="flex-center text-center">
+            <div className="font-ubuntu c-error fs-12 flex-center">{check}</div>
+          </div>
           <div className=" form mt-5 flex flex-col items-center">
             <div className="w-8 flex justify-between items-center">
               <div className="flex items-center">
@@ -96,7 +115,7 @@ export const Login = () => {
           </div>
           <div
             className="font-ubuntu fs-12 underline c-primary"
-            onClick={signup}
+            onClick={() => history.push("/signup")}
           >
             Шинэ хэрэглэгч бол энд дарна уу
           </div>

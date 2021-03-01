@@ -1,36 +1,24 @@
-@import './variables.scss';
-
-/*
-    text-transform
-    text-decoration
-    outline
-    border
-    эдгээр property-ийг судлаарай
-*/
+@import "./variables.scss";
 
 .btn {
-    border-radius: 100px;
-    text-transform: uppercase;
+  border-radius: 100px;
+  text-transform: uppercase;
 }
 
-.disabled { 
-    outline: none;
-    border:none;
+.disabled {
+  outline: none;
+  border: none;
 }
 
-.alga{
-    
+.underline {
+  text-decoration: underline;
 }
-
-.underline{
-   text-decoration: underline;
-}
-.text-align{
-    text-align: center;
+.text-align {
+  text-align: center;
 }
 
 .input {
-    border-radius: 100px;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.16);
-    padding-left: 15px;
+  border-radius: 100px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+  padding-left: 15px;
 }

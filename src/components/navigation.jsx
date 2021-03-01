@@ -7,16 +7,11 @@ import "../style/main.scss";
 export const Navigation = (props) => {
   let history = useHistory();
   let location = useLocation();
-  // let user1 = auth.currentUser;
-  // if (user1) {
-  //   console.log(user1.email)
-  // } else {
-  // }
 
   const { user } = useContext(AuthContext);
   const { email } = useContext(AuthContext);
 
-  const garah = () => {
+  const exit = () => {
     auth
       .signOut()
       .then(() => {
@@ -51,7 +46,7 @@ export const Navigation = (props) => {
             viewBox="0 0 21 13"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            onClick={garah}
+            onClick={exit}
           >
             <path
               d="M2 2L10.5 10.5L19 2"

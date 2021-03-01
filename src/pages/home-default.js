@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 import firebase from "firebase";
 export const HomeDefault = () => {
   const [form, setFrom] = useState({ url: "" });
-  const [darsan, setDarsan] = useState(false);
+  const [clicked, setClicked] = useState(false);
   const [haruul, setHaruul] = useState({});
   let randomstring = require("randomstring");
 
@@ -21,9 +21,8 @@ export const HomeDefault = () => {
     setFrom({ ...form, [e.target.id]: e.target.value });
   };
   const { user } = useContext(AuthContext);
-
   const click = () => {
-    setDarsan(true);
+    setClicked(true);
     let short = randomstring.generate(7);
     let uid, email;
     if (user) {
@@ -63,7 +62,7 @@ export const HomeDefault = () => {
             Богиносгох
           </Button>
         </div>
-        {darsan === true && (
+        {clicked === true && (
           <div class="font-ubuntu flex w-9 flex-wrap">
             <div class="ph-5">
               <p class="fs-16 ln-18 o-05">Өгөгдсөн холбоос:</p>
